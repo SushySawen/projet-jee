@@ -23,7 +23,7 @@ on peut le faire sous forme de table et mettre les <tr> dans le for--%>
 
     for (Etudiant etudiant : GestionFactory.getEtudiants()){ %>
 
-    <a href="details.jsp?id=<% etudiant.getId();%>"><%=etudiant.getNom() %>  <%=etudiant.getId() %></a>
+    <a href="servlettraitementdetails?id=<%=etudiant.getId()%>"><%=etudiant.getNom() %>  <%=etudiant.getId() %></a>
     <p> </p>
     <%}%>
 
@@ -31,6 +31,6 @@ on peut le faire sous forme de table et mettre les <tr> dans le for--%>
 
 
 
-  $END$
+
   </body>
 </html>

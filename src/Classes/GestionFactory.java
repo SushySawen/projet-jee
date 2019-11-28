@@ -16,8 +16,8 @@ public class GestionFactory {
 	private static HashMap<Integer, Etudiant> intializeListEtudiants() {
 
 		// Création des étudiants
-		Etudiant etu1 = new Etudiant(0, "Brunet-Manquat", "Francis");
-		Etudiant etu2 = new Etudiant(1, "Martin", "Philippe");
+		Etudiant etu1 = new Etudiant(0, "Francis", "Brunet-Manquat");
+		Etudiant etu2 = new Etudiant(1, "Philippe", "Martin");
 
 		// Création du hasmap (association clé/valeur)
 		// Association id -> etudiant

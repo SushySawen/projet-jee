@@ -7,20 +7,28 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="etudiant" class="Classes.Etudiant" scope="request"/>
+<jsp:useBean id="absence" type="java.lang.Integer" scope="request"/>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
-<% int id = Integer.parseInt(request.getParameter("id"));
-    Etudiant etudiant = GestionFactory.getEtudiantById(id);
+<%
+/*    //Récupération id
+    int id = Integer.parseInt(request.getParameter("id"));
+    //Récupération étudiant
+    Etudiant etudiant = GestionFactory.getEtudiantById(id);*/
 
 %>
-
-<p>Nom de l'étudiant : <% etudiant.getNom(); %></p>
+<%-- Affichage des détails de l'étudiant--%>
+<p>Détails de l'étudiant</p>
+<p>ID de l'étudiant : <%= etudiant.getId()%></p>
+<p>Nom de l'étudiant : <%= etudiant.getNom()%></p>
+<p>Prénom de l'étudiant : <%= etudiant.getPrenom()%></p>
+<p>Nombre d'absences de l'étudiant : <%= absence.intValue()%></p>
 
 
 
 </body>
 </html>
-    
