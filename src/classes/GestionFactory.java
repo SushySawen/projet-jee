@@ -1,8 +1,6 @@
-package Classes;
+package classes;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Random;
+import java.util.*;
 
 public class GestionFactory {
 
@@ -62,5 +60,6 @@ public class GestionFactory {
 	public static Integer getAbsencesByEtudiantId(int id) {
 		return LISTE_ID_ABSENCES.get(id);
 	}
+
 
 }

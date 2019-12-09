@@ -3,4 +3,39 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+
+
+    <!-- Servlet controleur -->
+    <servlet>
+        <servlet-name>controleur</servlet-name>
+        <servlet-class>controleur.Controleur</servlet-class>
+        <init-param>
+            <param-name>urlEtudiants</param-name>
+            <param-value>/WEB-INF/JSP/etudiants.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>urlDetails</param-name>
+            <param-value>/WEB-INF/JSP/details.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>urlNotes</param-name>
+            <param-value>/WEB-INF/JSP/notes.jsp</param-value>
+        </init-param>
+        <init-param>
+            <param-name>urlAbsences</param-name>
+            <param-value>/WEB-INF/JSP/absences.jsp</param-value>
+        </init-param>
+    </servlet>
+
+    <!-- Mapping URL/Servlet -->
+    <servlet-mapping>
+        <servlet-name>controleur</servlet-name>
+        <url-pattern>/do/*</url-pattern>
+    </servlet-mapping>
+
+    <!--  fichiers d'accueil -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
 </web-app>

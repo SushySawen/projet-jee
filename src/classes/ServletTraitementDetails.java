@@ -1,32 +1,21 @@
-package Controleur;
-
-import Classes.Etudiant;
-import Classes.GestionFactory;
+package classes;
 
 import java.io.IOException;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@SuppressWarnings("serial")
-public class controleur extends HttpServlet {
+@WebServlet("/servlettraitementdetails")
+public class ServletTraitementDetails extends HttpServlet {
 
-    private String urlDetails;
-    private String urlIndex;
-
-
-    //INIT
-    public void init() throws ServletException {
-        urlDetails = getInitParameter("urlDetails");
-        urlIndex = getInitParameter("urlIndex");
-    }
 
     // POST
-    public void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ServletException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         // on passe la main au GET
         doGet(request, response);
     }
@@ -49,16 +38,6 @@ public class controleur extends HttpServlet {
 
 
     }
-
-    //
-    private void doDetails(HttpServletRequest request,
-                       HttpServletResponse response) throws ServletException, IOException {
-
-
-        loadJSP(urlDetails, request, response);
-    }
-
-
 
     /**
      * Charge la JSP indiquée en paramètre
@@ -86,5 +65,4 @@ public class controleur extends HttpServlet {
         RequestDispatcher rd = sc.getRequestDispatcher(url);
         rd.forward(request, response);
     }
-
 }

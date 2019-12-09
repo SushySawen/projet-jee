@@ -1,5 +1,5 @@
-<%@ page import="Classes.Etudiant" %>
-<%@ page import="Classes.GestionFactory" %><%--
+<%@ page import="classes.Etudiant" %>
+<%@ page import="classes.GestionFactory" %><%--
   Created by IntelliJ IDEA.
   User: sophie
   Date: 25/11/2019
@@ -7,7 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:useBean id="etudiant" class="Classes.Etudiant" scope="request"/>
+<jsp:useBean id="etudiant" class="classes.Etudiant" scope="request"/>
 <jsp:useBean id="absence" type="java.lang.Integer" scope="request"/>
 <html>
 <head>
