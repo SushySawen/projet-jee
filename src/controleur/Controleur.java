@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-//!!! dans le projet du prof, après avoir intégré les jpa -> il initialise les valeurs dans le dao.
+//!!! dans le projet du prof, après avoir intégré les jps -> il initialise les valeurs dans le dao.
 //il faut normalement les déclarer dans la BDD, mais pas de pénalité si on fait comme lui
 @SuppressWarnings("serial")
 public class Controleur extends HttpServlet {
