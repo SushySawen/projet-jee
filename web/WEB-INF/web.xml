@@ -25,6 +25,7 @@
             <param-name>urlAbsences</param-name>
             <param-value>/WEB-INF/JSP/absences.jsp</param-value>
         </init-param>
+
     </servlet>
 
     <!-- Mapping URL/Servlet -->

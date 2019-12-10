@@ -14,12 +14,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+//!!! dans le projet du prof, après avoir intégré les jpa -> il initialise les valeurs dans le dao.
+//il faut normalement les déclarer dans la BDD, mais pas de pénalité si on fait comme lui
 @SuppressWarnings("serial")
 public class Controleur extends HttpServlet {
 
     private String urlDetails;
     private String urlEtudiants;
     private String urlAbsences;
+    private String urlNotes;
 
 
     //INIT
@@ -27,6 +31,7 @@ public class Controleur extends HttpServlet {
         urlDetails = getInitParameter("urlDetails");
         urlEtudiants = getInitParameter("urlEtudiants");
         urlAbsences = getInitParameter("urlAbsences");
+        urlNotes = getInitParameter("urlNotes");
     }
 
     // POST
@@ -58,7 +63,9 @@ public class Controleur extends HttpServlet {
             doDetails(request, response);
         } else if (methode.equals("get") && action.equals("/absences")) {
             doAbsences(request, response);
-    }
+        } else if (methode.equals("get") && action.equals("/notes")){
+            doNotes(request, response);
+        }
 
 
 
@@ -110,9 +117,6 @@ public class Controleur extends HttpServlet {
             absenceParEtu.put(etudiant.getId(), GestionFactory.getAbsencesByEtudiantId(etudiant.getId()));
         }
 
-
-
-
         // Mettre l'objet jeu en attribut de requête
         request.setAttribute("absenceParEtu", absenceParEtu);
         request.setAttribute("etudiants", etudiants);
@@ -120,6 +124,25 @@ public class Controleur extends HttpServlet {
         loadJSP(urlAbsences, request, response);
     }
 
+    private void doNotes(HttpServletRequest request,
+                            HttpServletResponse response) throws ServletException, IOException {
+        //<%--faire une hashmap et renvoyer le tout a la jsp contenant id etudiant et nb d'absences--%>
+        //faire une liste d'etudiant puis une hashmap avec l'id étudiant en clé et le nombre d'absences en valeur
+        //on récupère l'id de l'étudiant
+
+        Collection<Etudiant> etudiants = GestionFactory.getEtudiants();
+        HashMap<Integer, Integer> noteParEtu = new HashMap<>();
+
+        for (Etudiant etudiant : etudiants){
+            noteParEtu.put(etudiant.getId(), GestionFactory.getNotesByEtudiantId(etudiant.getId()));
+        }
+
+        // Mettre l'objet jeu en attribut de requête
+        request.setAttribute("noteParEtu", noteParEtu);
+        request.setAttribute("etudiants", etudiants);
+
+        loadJSP(urlNotes, request, response);
+    }
 
     /**
      * Charge la JSP indiquée en paramètre

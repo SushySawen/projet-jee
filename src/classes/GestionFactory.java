@@ -9,6 +9,7 @@ public class GestionFactory {
 	// CHARGER en premier à l'execution du projet (car constante : static final)
 	private static final HashMap<Integer, Etudiant> LISTE_ID_ETUDIANTS = intializeListEtudiants();
 	private static final HashMap<Integer, Integer> LISTE_ID_ABSENCES = intializelistEtudiantAbsence();
+	private static final HashMap<Integer, Integer> LISTE_ID_NOTES = intializelistEtudiantNotes();
 
 	// Initialisation des étudiants
 	private static HashMap<Integer, Etudiant> intializeListEtudiants() {
@@ -16,12 +17,18 @@ public class GestionFactory {
 		// Création des étudiants
 		Etudiant etu1 = new Etudiant(0, "Francis", "Brunet-Manquat");
 		Etudiant etu2 = new Etudiant(1, "Philippe", "Martin");
+		Etudiant etu3 = new Etudiant(2, "Sophie", "Bougherra");
+		Etudiant etu4 = new Etudiant(3, "Titouan", "Gisle");
+		Etudiant etu5 = new Etudiant(4, "Johan", "Aarons");
 
 		// Création du hasmap (association clé/valeur)
 		// Association id -> etudiant
 		HashMap<Integer, Etudiant> listEtudiantsTemp = new HashMap<>();
 		listEtudiantsTemp.put(etu1.getId(), etu1);
 		listEtudiantsTemp.put(etu2.getId(), etu2);
+		listEtudiantsTemp.put(etu3.getId(), etu3);
+		listEtudiantsTemp.put(etu4.getId(), etu4);
+		listEtudiantsTemp.put(etu5.getId(), etu5);
 
 		//
 		return listEtudiantsTemp;
@@ -43,6 +50,22 @@ public class GestionFactory {
 		//
 		return listEtudiantAbsenceTemp;
 	}
+	//Initialisation de la liste des notes
+	private static final HashMap<Integer, Integer> intializelistEtudiantNotes() {
+
+		// Création du hasmap (association clé/valeur)
+		// Association etudiant id -> notes
+		HashMap<Integer, Integer> listEtudiantNotesTemp = new HashMap<>();
+
+		// Les notes sont générées aléatoirement
+		Random rand = new Random();
+		for (Etudiant etudiant : LISTE_ID_ETUDIANTS.values()) {
+			listEtudiantNotesTemp.put(etudiant.getId(), rand.nextInt(20));
+		}
+
+		//On retourne la liste d'étudiant
+		return listEtudiantNotesTemp;
+	}
 
 	
 	/////// METHODES A UTILISER
@@ -60,6 +83,8 @@ public class GestionFactory {
 	public static Integer getAbsencesByEtudiantId(int id) {
 		return LISTE_ID_ABSENCES.get(id);
 	}
-
-
+	//Retourne les notes d'un étudiant en fonction de son id
+	public static Integer getNotesByEtudiantId(int id){
+		return LISTE_ID_NOTES.get(id);
+	}
 }

@@ -13,6 +13,7 @@
     <title><%= application.getInitParameter("title")%></title>
 </head>
 <body>
+    <h1>Absences</h1>
     <table>
         <%
             for (Etudiant etudiant : etudiants){

@@ -18,7 +18,7 @@ on peut le faire sous forme de table et mettre les <tr> dans le for--%>
 
 
   <body>
-
+  <h1>Liste des étudiants</h1>
   <ul>
   <%
 

@@ -14,6 +14,7 @@
     <title>Title</title>
 </head>
 <body>
+<h1>Détails de l'étudiant</h1>
 <%
 /*    //Récupération id
     int id = Integer.parseInt(request.getParameter("id"));
